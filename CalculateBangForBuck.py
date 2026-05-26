@@ -70,19 +70,52 @@ plt.legend(title='Position')
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.savefig('nfl_value_scatter.png')
 
-top_20_salries = salary_df.head(20)
-print("Top 20 Highest Paid Players")
-print(top_20_salries[['player_display_name', 'position', 'Salary']])
+# Print the top 20 "Most Bang for your Buck" players
+top_20_bang_for_buck = analysis_df.head(20)
+print("Top 20 'Most Bang for your Buck' Players")
+print(top_20_bang_for_buck[['player_display_name', 'position', 'value_per_million']])
 
 print()
+
+for pos, color in colors.items():
+    subset = analysis_df[analysis_df['position'] == pos]
+    plt.scatter(subset['Salary'] / 1000000.0, subset['production_score'], 
+                label=pos, color=color, alpha=0.7, edgecolors='w', s=60)
+
+plt.title('Distribution of NFL Offensive Player Salaries (2025)', fontsize=14, fontweight='bold')
+plt.xlabel('Salary (in millions)')
+plt.ylabel('Number of Players')
+plt.grid(True, axis='y', linestyle='--', alpha=0.5)
+plt.savefig('nfl_salary_distribution.png')
+
+top_20_salaries = salary_df.head(20)
+print("Top 20 Highest Paid Players")
+print(top_20_salaries[['player_display_name', 'position', 'Salary']])
+
+print()
+
+df_off = df[df['position'].isin(['QB', 'RB', 'WR', 'TE']) & (df['production_score'] > 0)]
+
+# 3. Create the Histogram
+plt.figure(figsize=(10, 6))
+
+# plt.hist automatically puts the production scores into ranges on the X-axis
+# and counts how many players fall into each range on the Y-axis
+plt.hist(df_off['production_score'], bins=15, color='tab:blue', edgecolor='black', alpha=0.8)
+
+# Add titles and axis labels
+plt.title('Distribution of Offensive Players by Production Score (2025)', fontsize=14, fontweight='bold')
+plt.xlabel('Production Score')
+plt.ylabel('Number of Players')
+plt.grid(True, axis='y', linestyle='--', alpha=0.5)
+
+plt.tight_layout()
+
+# Save the plot
+plt.savefig('nfl_production_histogram.png')
 
 top_20_overall = overall_df.head(20)
 print("Top 20 Most Productive Players (Overall)")
 print(top_20_overall[['player_display_name', 'position', 'production_score']])
 
 print()
-
-# Print the top 20 "Most Bang for your Buck" players
-top_20_bang_for_buck = analysis_df.head(20)
-print("Top 20 'Most Bang for your Buck' Players")
-print(top_20_bang_for_buck[['player_display_name', 'position', 'value_per_million']])
