@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Which NFL Players Had The "Most Bang For Your Buck" In 2025?</title>
@@ -18,5 +18,313 @@
         One thing that I noticed and found interesting is that nearly all of the top 20 "Most Bang for Your Buck" players were on their rookie contracts who broke out in the 2025 season, which are typically more team-friendly and lower than the salaries of veteran players. 
         This highlights the importance of drafting well and developing young talent in the NFL, as these players can provide significant value to their teams without commanding high salaries.
     </p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NFL 2025 Analytics Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        /* Tab Navigation Bar styling */
+        .tab-menu {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            outline: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+            transition: 0.2s;
+        }
+        .tab-button:hover {
+            color: #003366;
+            background-color: #f0f4f8;
+        }
+        .tab-button.active {
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            margin-bottom: -2px;
+        }
+        /* Tab Content Panel styling */
+        .tab-content {
+            display: none;
+            background: #fff;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* Side-by-Side Flexbox Layout */
+        .flex-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .visual-side {
+            flex: 1.2;
+            min-width: 450px;
+        }
+        .table-side {
+            flex: 0.8;
+            min-width: 350px;
+            max-height: 550px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; 
+        }
+
+        th:nth-child(1), td:nth-child(1) { width: 50%; } 
+        th:nth-child(2), td:nth-child(2) { width: 20%; } 
+        th:nth-child(3), td:nth-child(3) { width: 30%; } 
+
+        th, td {
+            border: 1px solid black;
+            padding: 14px 20px; /* This gives you the column breathing room */
+            text-align: left;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        /* Interactive Data Table styling */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #003366;
+            color: white;
+            padding: 12px 10px;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        .data-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .data-table tr:hover {
+            background-color: #f1f5f9;
+        }
+        /* Callout Box for Written Insights */
+        p.analysis-box {
+            background-color: #eef4f8;
+            padding: 15px;
+            border-left: 4px solid #003366;
+            font-style: italic;
+            margin-top: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>NFL 2025 Analytics Dashboard</h1>
+
+    <div class="tab-menu">
+        <button class="tab-button active" onclick="switchTab(event, 'tab-moneyball')">1. Bang For Your Buck</button>
+        <button class="tab-button" onclick="switchTab(event, 'tab-production')">2. Pure Production Leaders</button>
+        <button class="tab-button" onclick="switchTab(event, 'tab-salaries')">3. Top Market Salaries</button>
+    </div>
+
+    <div id="tab-moneyball" class="tab-content active">
+        <h2>Production Score vs. Salary Analysis</h2>
+        <p>This layout visualizes elite player value relative to total contract cost by mapping custom weighted performance scores directly against salary cap impacts.</p>
+        <div class="flex-container">
+            <div class="visual-side">
+                <img src="nfl_value_scatter.png" alt="Production vs Salary Scatter Plot">
+            </div>
+            <div class="table-side">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Pos</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Puka Nacua</td><td>WR</td><td>445.14</td></tr>
+                        <tr><td>Chase Brown</td><td>RB</td><td>272.02</td></tr>
+                        <tr><td>De'Von Achane</td><td>RB</td><td>237.46</td></tr>
+                        <tr><td>Parker Washington</td><td>WR</td><td>195.03</td></tr>
+                        <tr><td>Romeo Doubs</td><td>WR</td><td>174.77</td></tr>
+                        <tr><td>George Pickens</td><td>WR</td><td>171.74</td></tr>
+                        <tr><td>Michael Wilson</td><td>WR</td><td>165.26</td></tr>
+                        <tr><td>Kayshon Boutte</td><td>WR</td><td>154.84</td></tr>
+                        <tr><td>Kyle Monangai</td><td>RB</td><td>147.68</td></tr>
+                        <tr><td>Troy Franklin</td><td>WR</td><td>142.04</td></tr>
+                        <tr><td>AJ Barner</td><td>TE</td><td>139.22</td></tr>
+                        <tr><td>Jalen Coker</td><td>WR</td><td>135.38</td></tr>
+                        <tr><td>Jacory Croskey-Merritt</td><td>RB</td><td>130.35</td></tr>
+                        <tr><td>Kimani Vidal</td><td>RB</td><td>130.21</td></tr>
+                        <tr><td>Kenneth Gainwell</td><td>RB</td><td>129.55</td></tr>
+                        <tr><td>Woody Marks</td><td>RB</td><td>127.52</td></tr>
+                        <tr><td>Kenneth Walker III</td><td>RB</td><td>126.33</td></tr>
+                        <tr><td>RJ Harvey</td><td>RB</td><td>123.97</td></tr>
+                        <tr><td>Tyler Allgeier</td><td>RB</td><td>123.19</td></tr>
+                        <tr><td>Tre Tucker</td><td>WR</td><td>121.94</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="analysis-box">
+            <strong>Value Insight:</strong> Players anchoring the upper-left boundary quadrant represent premium resource efficiency. These structural outliers (often high-volume contributors playing on rookie contracts) offer franchises immense flexibility elsewhere on the roster.
+        </p>
+    </div>
+
+    <div id="tab-production" class="tab-content">
+        <h2>Top 20 On-Field Statistical Producers</h2>
+        <p>A pure tracking leaderboard isolated strictly by offensive volume and efficiency formulas, completely removing financial values from the rank criteria.</p>
+        <div class="flex-container">
+            <div class="visual-side">
+                <img src="nfl_production_histogram.png" alt="Offensive Points Distribution">
+            </div>
+            <div class="table-side">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Pos</th>
+                            <th>Production Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Christian McCaffrey</td><td>RB</td><td>458.40</td></tr>
+                        <tr><td>Puka Nacua</td><td>WR</td><td>454.60</td></tr>
+                        <tr><td>Drake Maye</td><td>QB</td><td>424.88</td></tr>
+                        <tr><td>Josh Allen</td><td>QB</td><td>418.76</td></tr>
+                        <tr><td>Matthew Stafford</td><td>QB</td><td>415.32</td></tr>
+                        <tr><td>Jaxon Smith-Njigba</td><td>WR</td><td>410.80</td></tr>
+                        <tr><td>Bijan Robinson</td><td>RB</td><td>370.80</td></tr>
+                        <tr><td>Jahmyr Gibbs</td><td>RB</td><td>366.90</td></tr>
+                        <tr><td>Jonathan Taylor</td><td>RB</td><td>360.30</td></tr>
+                        <tr><td>Trevor Lawrence</td><td>QB</td><td>359.56</td></tr>
+                        <tr><td>Caleb Williams</td><td>QB</td><td>354.90</td></tr>
+                        <tr><td>Amon-Ra St. Brown</td><td>WR</td><td>324.00</td></tr>
+                        <tr><td>James Cook</td><td>RB</td><td>323.40</td></tr>
+                        <tr><td>Bo Nix</td><td>QB</td><td>322.90</td></tr>
+                        <tr><td>De'Von Achane</td><td>RB</td><td>322.80</td></tr>
+                        <tr><td>Kyren Williams</td><td>RB</td><td>320.60</td></tr>
+                        <tr><td>Trey McBride</td><td>TE</td><td>315.90</td></tr>
+                        <tr><td>Ja'Marr Chase</td><td>WR</td><td>315.60</td></tr>
+                        <tr><td>Jalen Hurts</td><td>QB</td><td>315.18</td></tr>
+                        <tr><td>Dak Prescott</td><td>QB</td><td>309.78</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="analysis-box">
+            <strong>Performance Insight:</strong> Isolating statistics outside of cap weight highlights structural value distribution. High-volume skill assets display overall raw production parity matching elite passing targets.
+        </p>
+    </div>
+
+    <div id="tab-salaries" class="tab-content">
+        <h2>The League's Most Expensive Assets</h2>
+        <p>An objective breakdown mapping the highest active salary benchmarks and cap allocations dictating current player valuation metrics throughout the league.</p>
+        <div class="flex-container">
+            <div class="visual-side">
+                <img src="nfl_salary_distribution.png" alt="League Spending Structure">
+            </div>
+            <div class="table-side">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Pos</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Dak Prescott</td><td>QB</td><td>$60 M</td></tr>
+                        <tr><td>Josh Allen</td><td>QB</td><td>$55 M</td></tr>
+                        <tr><td>Jordan Love</td><td>QB</td><td>$55 M</td></tr>
+                        <tr><td>Joe Burrow</td><td>QB</td><td>$55 M</td></tr>
+                        <tr><td>Trevor Lawrence</td><td>QB</td><td>$55 M</td></tr>
+                        <tr><td>Tua Tagovailoa</td><td>QB</td><td>$53.1 M</td></tr>
+                        <tr><td>Jared Goff</td><td>QB</td><td>$53 M</td></tr>
+                        <tr><td>Brock Purdy</td><td>QB</td><td>$53 M</td></tr>
+                        <tr><td>Justin Herbert</td><td>QB</td><td>$52.5 M</td></tr>
+                        <tr><td>Lamar Jackson</td><td>QB</td><td>$52 M</td></tr>
+                        <tr><td>Jalen Hurts</td><td>QB</td><td>$51 M</td></tr>
+                        <tr><td>Kyler Murray</td><td>QB</td><td>$46.1 M</td></tr>
+                        <tr><td>Kirk Cousins</td><td>QB</td><td>$45 M</td></tr>
+                        <tr><td>Patrick Mahomes</td><td>QB</td><td>$45 M</td></tr>
+                        <tr><td>Matthew Stafford</td><td>QB</td><td>$42 M</td></tr>
+                        <tr><td>Ja'Marr Chase</td><td>WR</td><td>$40.25 M</td></tr>
+                        <tr><td>Geno Smith</td><td>QB</td><td>$37.5 M</td></tr>
+                        <tr><td>Justin Jefferson</td><td>WR</td><td>$35 M</td></tr>
+                        <tr><td>CeeDee Lamb</td><td>WR</td><td>$34 M</td></tr>
+                        <tr><td>Sam Darnold</td><td>QB</td><td>$33.5 M</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="analysis-box">
+            <strong>Financial Insight:</strong> Premium contractual assets remain overwhelmingly concentrated at the quarterback position. Top-tier edge rushers and game-breaking perimeter options mark the next critical investment layer.
+        </p>
+    </div>
+
+    <script>
+        function switchTab(evt, tabId) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab panels
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            
+            // Deactivate all tab menu buttons
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Reveal the designated target tab container and set clicked button to active
+            document.getElementById(tabId).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
 </body>
 </html>
