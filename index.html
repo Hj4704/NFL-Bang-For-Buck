@@ -126,6 +126,38 @@
             margin-top: 25px;
             border-radius: 0 4px 4px 0;
         }
+
+        .data-table.optimized-layout {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .data-table.optimized-layout th:nth-child(1),
+        .data-table.optimized-layout td:nth-child(1) { width: 35px; text-align: center; }
+
+        .data-table.optimized-layout th:nth-child(3),
+        .data-table.optimized-layout td:nth-child(3) { width: 45px; text-align: center; }
+
+        .data-table.optimized-layout th:nth-child(4),
+        .data-table.optimized-layout td:nth-child(4) { width: 45px; text-align: center; }
+
+        .data-table.optimized-layout th:nth-child(5),
+        .data-table.optimized-layout td:nth-child(5) { width: 60px; text-align: center; }
+
+        .data-table.optimized-layout th:nth-child(2),
+        .data-table.optimized-layout td:nth-child(2) {
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .data-table.optimized-layout th,
+        .data-table.optimized-layout td {
+            padding: 8px 4px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -136,6 +168,7 @@
         <button class="tab-button active" onclick="switchTab(event, 'tab-moneyball')">1. Bang For Your Buck</button>
         <button class="tab-button" onclick="switchTab(event, 'tab-production')">2. Pure Production Leaders</button>
         <button class="tab-button" onclick="switchTab(event, 'tab-salaries')">3. Top Market Salaries</button>
+        <button class="tab-button" onclick="switchTab(event, 'tab-projections')">4. 2026 ML Projections</button>
     </div>
 
     <div id="tab-moneyball" class="tab-content active">
@@ -274,6 +307,146 @@
         <p class="analysis-box">
             <strong>Financial Insight:</strong> Premium contractual assets remain overwhelmingly concentrated at the quarterback position. Top-tier edge rushers and game-breaking perimeter options mark the next critical investment layer.
         </p>
+    </div>
+
+    <div class="projections-dual-layout">
+        <div class="projections-column-pane">
+            <h3 class="column-title">Top 1-50 Projections</h3>
+            <div class="table-wrapper">
+                <table class="data-table optimized-layout">
+                    <thead>
+                        <tr>
+                            <th style="width: 35px; text-align: center;">Rk</th>
+                            <th style="text-align: left;">Player Name</th>
+                            <th style="width: 45px; text-align: center;">Pos</th>
+                            <th style="width: 45px; text-align: center;">Tm</th>
+                            <th style="width: 60px; text-align: center;">Proj</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="text-align: center;">1</td><td><strong>Christian McCaffrey</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">SF</td><td class="highlight-projection">449.7</td></tr>
+                        <tr><td style="text-align: center;">2</td><td><strong>Jaxon Smith-Njigba</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">SEA</td><td class="highlight-projection">426.79</td></tr>
+                        <tr><td style="text-align: center;">3</td><td><strong>Puka Nacua</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">LA</td><td class="highlight-projection">423.7</td></tr>
+                        <tr><td style="text-align: center;">4</td><td><strong>Drake Maye</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">NE</td><td class="highlight-projection">402.36</td></tr>
+                        <tr><td style="text-align: center;">5</td><td><strong>Jahmyr Gibbs</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">DET</td><td class="highlight-projection">400.48</td></tr>
+                        <tr><td style="text-align: center;">6</td><td><strong>Matthew Stafford</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">LA</td><td class="highlight-projection">388.99</td></tr>
+                        <tr><td style="text-align: center;">7</td><td><strong>Josh Allen</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">BUF</td><td class="highlight-projection">388.99</td></tr>
+                        <tr><td style="text-align: center;">8</td><td><strong>Trevor Lawrence</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">JAX</td><td class="highlight-projection">385.33</td></tr>
+                        <tr><td style="text-align: center;">9</td><td><strong>Jalen Hurts</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">PHI</td><td class="highlight-projection">383.79</td></tr>
+                        <tr><td style="text-align: center;">10</td><td><strong>Bijan Robinson</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">ATL</td><td class="highlight-projection">383.73</td></tr>
+                        <tr><td style="text-align: center;">11</td><td><strong>Jonathan Taylor</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">IND</td><td class="highlight-projection">365.19</td></tr>
+                        <tr><td style="text-align: center;">12</td><td><strong>Amon-Ra St. Brown</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">DET</td><td class="highlight-projection">333.5</td></tr>
+                        <tr><td style="text-align: center;">13</td><td><strong>Jared Goff</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">DET</td><td class="highlight-projection">330.16</td></tr>
+                        <tr><td style="text-align: center;">14</td><td><strong>Ja'Marr Chase</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">CIN</td><td class="highlight-projection">316.74</td></tr>
+                        <tr><td style="text-align: center;">15</td><td><strong>Dak Prescott</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">DAL</td><td class="highlight-projection">315.55</td></tr>
+                        <tr><td style="text-align: center;">16</td><td><strong>Chris Olave</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">NO</td><td class="highlight-projection">309.23</td></tr>
+                        <tr><td style="text-align: center;">17</td><td><strong>Saquon Barkley</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">PHI</td><td class="highlight-projection">303.57</td></tr>
+                        <tr><td style="text-align: center;">18</td><td><strong>De'Von Achane</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">MIA</td><td class="highlight-projection">300.61</td></tr>
+                        <tr><td style="text-align: center;">19</td><td><strong>Kyren Williams</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">LA</td><td class="highlight-projection">299.74</td></tr>
+                        <tr><td style="text-align: center;">20</td><td><strong>James Cook</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">BUF</td><td class="highlight-projection">299.74</td></tr>
+                        <tr><td style="text-align: center;">21</td><td><strong>Derrick Henry</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">BAL</td><td class="highlight-projection">299.51</td></tr>
+                        <tr><td style="text-align: center;">22</td><td><strong>Trey McBride</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">ARI</td><td class="highlight-projection">299.47</td></tr>
+                        <tr><td style="text-align: center;">23</td><td><strong>Sam Darnold</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">SEA</td><td class="highlight-projection">298.08</td></tr>
+                        <tr><td style="text-align: center;">24</td><td><strong>Travis Etienne</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">JAX</td><td class="highlight-projection">297.2</td></tr>
+                        <tr><td style="text-align: center;">25</td><td><strong>Caleb Williams</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">CHI</td><td class="highlight-projection">295.52</td></tr>
+                        <tr><td style="text-align: center;">26</td><td><strong>Baker Mayfield</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">TB</td><td class="highlight-projection">293.44</td></tr>
+                        <tr><td style="text-align: center;">27</td><td><strong>Bo Nix</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">DEN</td><td class="highlight-projection">290.52</td></tr>
+                        <tr><td style="text-align: center;">28</td><td><strong>George Pickens</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">DAL</td><td class="highlight-projection">289.09</td></tr>
+                        <tr><td style="text-align: center;">29</td><td><strong>Chase Brown</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">CIN</td><td class="highlight-projection">287.98</td></tr>
+                        <tr><td style="text-align: center;">30</td><td><strong>Patrick Mahomes</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">KC</td><td class="highlight-projection">287.87</td></tr>
+                        <tr><td style="text-align: center;">31</td><td><strong>Jordan Love</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">GB</td><td class="highlight-projection">283.49</td></tr>
+                        <tr><td style="text-align: center;">32</td><td><strong>Kenneth Walker III</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">SEA</td><td class="highlight-projection">280.85</td></tr>
+                        <tr><td style="text-align: center;">33</td><td><strong>A.J. Brown</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">PHI</td><td class="highlight-projection">276.12</td></tr>
+                        <tr><td style="text-align: center;">34</td><td><strong>Zay Flowers</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">BAL</td><td class="highlight-projection">270.95</td></tr>
+                        <tr><td style="text-align: center;">35</td><td><strong>DeVonta Smith</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">PHI</td><td class="highlight-projection">267.63</td></tr>
+                        <tr><td style="text-align: center;">36</td><td><strong>Nico Collins</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">HOU</td><td class="highlight-projection">257.25</td></tr>
+                        <tr><td style="text-align: center;">37</td><td><strong>Justin Herbert</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">LAC</td><td class="highlight-projection">255.04</td></tr>
+                        <tr><td style="text-align: center;">38</td><td><strong>Jaxson Dart</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">NYG</td><td class="highlight-projection">254.77</td></tr>
+                        <tr><td style="text-align: center;">39</td><td><strong>Josh Jacobs</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">GB</td><td class="highlight-projection">253.72</td></tr>
+                        <tr><td style="text-align: center;">40</td><td><strong>C.J. Stroud</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">HOU</td><td class="highlight-projection">251.76</td></tr>
+                        <tr><td style="text-align: center;">41</td><td><strong>Dallas Goedert</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">PHI</td><td class="highlight-projection">249.57</td></tr>
+                        <tr><td style="text-align: center;">42</td><td><strong>Javonte Williams</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">DAL</td><td class="highlight-projection">246.45</td></tr>
+                        <tr><td style="text-align: center;">43</td><td><strong>Jameson Williams</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">DET</td><td class="highlight-projection">240.1</td></tr>
+                        <tr><td style="text-align: center;">44</td><td><strong>Davante Adams</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">LA</td><td class="highlight-projection">238.96</td></tr>
+                        <tr><td style="text-align: center;">45</td><td><strong>Lamar Jackson</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">BAL</td><td class="highlight-projection">238.48</td></tr>
+                        <tr><td style="text-align: center;">46</td><td><strong>Wan'Dale Robinson</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">NYG</td><td class="highlight-projection">230.83</td></tr>
+                        <tr><td style="text-align: center;">47</td><td><strong>Stefon Diggs</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">NE</td><td class="highlight-projection">228.8</td></tr>
+                        <tr><td style="text-align: center;">48</td><td><strong>Daniel Jones</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">IND</td><td class="highlight-projection">227.67</td></tr>
+                        <tr><td style="text-align: center;">49</td><td><strong>Harold Fannin Jr.</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">CLE</td><td class="highlight-projection">226.49</td></tr>
+                        <tr><td style="text-align: center;">50</td><td><strong>Justin Jefferson</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">MIN</td><td class="highlight-projection">225.29</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="projections-column-pane">
+            <h3 class="column-title">Top 51-100 Projections</h3>
+            <div class="table-wrapper">
+                <table class="data-table optimized-layout">
+                    <thead>
+                        <tr>
+                            <th style="width: 35px; text-align: center;">Rk</th>
+                            <th style="text-align: left;">Player Name</th>
+                            <th style="width: 45px; text-align: center;">Pos</th>
+                            <th style="width: 45px; text-align: center;">Tm</th>
+                            <th style="width: 60px; text-align: center;">Proj</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="text-align: center;">51</td><td><strong>Cam Ward</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">TEN</td><td class="highlight-projection">221.88</td></tr>
+                        <tr><td style="text-align: center;">52</td><td><strong>Juwan Johnson</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">NO</td><td class="highlight-projection">221.5</td></tr>
+                        <tr><td style="text-align: center;">53</td><td><strong>Kenneth Gainwell</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">PIT</td><td class="highlight-projection">220.8</td></tr>
+                        <tr><td style="text-align: center;">54</td><td><strong>Bryce Young</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">CAR</td><td class="highlight-projection">220.63</td></tr>
+                        <tr><td style="text-align: center;">55</td><td><strong>Jacoby Brissett</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">ARI</td><td class="highlight-projection">219.17</td></tr>
+                        <tr><td style="text-align: center;">56</td><td><strong>Tee Higgins</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">CIN</td><td class="highlight-projection">218.35</td></tr>
+                        <tr><td style="text-align: center;">57</td><td><strong>Kyle Pitts</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">ATL</td><td class="highlight-projection">218.35</td></tr>
+                        <tr><td style="text-align: center;">58</td><td><strong>Rhamondre Stevenson</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">NE</td><td class="highlight-projection">218.16</td></tr>
+                        <tr><td style="text-align: center;">59</td><td><strong>Aaron Rodgers</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">PIT</td><td class="highlight-projection">218.14</td></tr>
+                        <tr><td style="text-align: center;">60</td><td><strong>D'Andre Swift</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">CHI</td><td class="highlight-projection">215.26</td></tr>
+                        <tr><td style="text-align: center;">61</td><td><strong>Tetairoa McMillan</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">CAR</td><td class="highlight-projection">213.79</td></tr>
+                        <tr><td style="text-align: center;">62</td><td><strong>Dalton Schultz</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">HOU</td><td class="highlight-projection">213.23</td></tr>
+                        <tr><td style="text-align: center;">63</td><td><strong>Parker Washington</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">JAX</td><td class="highlight-projection">212.5</td></tr>
+                        <tr><td style="text-align: center;">64</td><td><strong>Courtland Sutton</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">DEN</td><td class="highlight-projection">210.43</td></tr>
+                        <tr><td style="text-align: center;">65</td><td><strong>Jaylen Warren</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">PIT</td><td class="highlight-projection">209.16</td></tr>
+                        <tr><td style="text-align: center;">66</td><td><strong>TreVeyon Henderson</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">NE</td><td class="highlight-projection">209.16</td></tr>
+                        <tr><td style="text-align: center;">67</td><td><strong>Tony Pollard</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">TEN</td><td class="highlight-projection">208.49</td></tr>
+                        <tr><td style="text-align: center;">68</td><td><strong>Michael Wilson</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">ARI</td><td class="highlight-projection">206.34</td></tr>
+                        <tr><td style="text-align: center;">69</td><td><strong>Rico Dowdle</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">CAR</td><td class="highlight-projection">206.18</td></tr>
+                        <tr><td style="text-align: center;">70</td><td><strong>RJ Harvey</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">DEN</td><td class="highlight-projection">205.97</td></tr>
+                        <tr><td style="text-align: center;">71</td><td><strong>Drake London</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">ATL</td><td class="highlight-projection">205.13</td></tr>
+                        <tr><td style="text-align: center;">72</td><td><strong>CeeDee Lamb</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">DAL</td><td class="highlight-projection">205.07</td></tr>
+                        <tr><td style="text-align: center;">73</td><td><strong>Quinshon Judkins</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">CLE</td><td class="highlight-projection">203.76</td></tr>
+                        <tr><td style="text-align: center;">74</td><td><strong>Emeka Egbuka</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">TB</td><td class="highlight-projection">201.94</td></tr>
+                        <tr><td style="text-align: center;">75</td><td><strong>Deebo Samuel Sr.</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">WAS</td><td class="highlight-projection">199.9</td></tr>
+                        <tr><td style="text-align: center;">76</td><td><strong>Romeo Doubs</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">GB</td><td class="highlight-projection">199.57</td></tr>
+                        <tr><td style="text-align: center;">77</td><td><strong>Michael Pittman</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">IND</td><td class="highlight-projection">198.81</td></tr>
+                        <tr><td style="text-align: center;">78</td><td><strong>Brock Purdy</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">SF</td><td class="highlight-projection">198.3</td></tr>
+                        <tr><td style="text-align: center;">79</td><td><strong>Ashton Jeanty</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">LV</td><td class="highlight-projection">198.16</td></tr>
+                        <tr><td style="text-align: center;">80</td><td><strong>Hunter Henry</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">NE</td><td class="highlight-projection">196.23</td></tr>
+                        <tr><td style="text-align: center;">81</td><td><strong>Jake Ferguson</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">DAL</td><td class="highlight-projection">193.37</td></tr>
+                        <tr><td style="text-align: center;">82</td><td><strong>Zach Charbonnet</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">SEA</td><td class="highlight-projection">192.42</td></tr>
+                        <tr><td style="text-align: center;">83</td><td><strong>Khalil Shakir</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">BUF</td><td class="highlight-projection">189.31</td></tr>
+                        <tr><td style="text-align: center;">84</td><td><strong>Woody Marks</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">HOU</td><td class="highlight-projection">189.11</td></tr>
+                        <tr><td style="text-align: center;">85</td><td><strong>Breece Hall</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">NYJ</td><td class="highlight-projection">188.01</td></tr>
+                        <tr><td style="text-align: center;">86</td><td><strong>Tyler Warren</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">IND</td><td class="highlight-projection">187.12</td></tr>
+                        <tr><td style="text-align: center;">87</td><td><strong>Alec Pierce</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">IND</td><td class="highlight-projection">186.49</td></tr>
+                        <tr><td style="text-align: center;">88</td><td><strong>Travis Kelce</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">KC</td><td class="highlight-projection">184.97</td></tr>
+                        <tr><td style="text-align: center;">89</td><td><strong>Jaylen Waddle</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">MIA</td><td class="highlight-projection">184.15</td></tr>
+                        <tr><td style="text-align: center;">90</td><td><strong>DK Metcalf</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">PIT</td><td class="highlight-projection">184.12</td></tr>
+                        <tr><td style="text-align: center;">91</td><td><strong>David Montgomery</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">DET</td><td class="highlight-projection">183.44</td></tr>
+                        <tr><td style="text-align: center;">92</td><td><strong>Tyler Shough</strong></td><td style="text-align: center;"><span class="badge position-qb">QB</span></td><td style="text-align: center;">NO</td><td class="highlight-projection">179.52</td></tr>
+                        <tr><td style="text-align: center;">93</td><td><strong>DJ Moore</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">CHI</td><td class="highlight-projection">175.31</td></tr>
+                        <tr><td style="text-align: center;">94</td><td><strong>Tyrone Tracy Jr.</strong></td><td style="text-align: center;"><span class="badge position-rb">RB</span></td><td style="text-align: center;">NYG</td><td class="highlight-projection">174.89</td></tr>
+                        <tr><td style="text-align: center;">95</td><td><strong>AJ Barner</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">SEA</td><td class="highlight-projection">172.62</td></tr>
+                        <tr><td style="text-align: center;">96</td><td><strong>Jayden Higgins</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">HOU</td><td class="highlight-projection">167.62</td></tr>
+                        <tr><td style="text-align: center;">97</td><td><strong>Colston Loveland</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">CHI</td><td class="highlight-projection">163.04</td></tr>
+                        <tr><td style="text-align: center;">98</td><td><strong>George Kittle</strong></td><td style="text-align: center;"><span class="badge position-te">TE</span></td><td style="text-align: center;">SF</td><td class="highlight-projection">162.66</td></tr>
+                        <tr><td style="text-align: center;">99</td><td><strong>Ladd McConkey</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">LAC</td><td class="highlight-projection">162.24</td></tr>
+                        <tr><td style="text-align: center;">100</td><td><strong>Keenan Allen</strong></td><td style="text-align: center;"><span class="badge position-wr">WR</span></td><td style="text-align: center;">LAC</td><td class="highlight-projection">162.24</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <script>
